@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app xmlns="https://jakarta.ee/xml/ns/jakartaee" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xsi:schemaLocation="https://jakarta.ee/xml/ns/jakartaee https://jakarta.ee/xml/ns/jakartaee/web-app_5_0.xsd"
+  version="5.0">
+
+	<!-- Application Initialization Listener -->
+	<listener>
+		<listener-class>com.migration.todo.AppInitializationListener</listener-class>
+	</listener>
+
+	<!-- Servlets -->
+  <servlet>
+    <servlet-name>greetServlet</servlet-name>
+    <servlet-class>com.migration.todo.GreetingServiceImpl</servlet-class>
+  </servlet>
+
+  <servlet>
+    <servlet-name>todoServlet</servlet-name>
+    <servlet-class>com.migration.todo.TodoServiceImpl</servlet-class>
+  </servlet>
+
+  <servlet-mapping>
+    <servlet-name>greetServlet</servlet-name>
+    <url-pattern>/todoapp/greet</url-pattern>
+  </servlet-mapping>
+
+  <servlet-mapping>
+    <servlet-name>todoServlet</servlet-name>
+    <url-pattern>/todoapp/todoService</url-pattern>
+  </servlet-mapping>
+
+	<!-- Default page to serve -->
+  <welcome-file-list>
+    <welcome-file>index.html</welcome-file>
+  </welcome-file-list>
+
+</web-app>
