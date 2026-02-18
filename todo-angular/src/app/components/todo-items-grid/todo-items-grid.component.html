@@ -1,0 +1,57 @@
+<div class="items-grid-view">
+  <!-- Empty State -->
+  <div *ngIf="selectedListId <= 0" class="empty-state">
+    <p>Select a list to view items</p>
+  </div>
+
+  <!-- Error Message -->
+  <div *ngIf="error" class="error-message">
+    {{ error }}
+  </div>
+
+  <!-- Loading -->
+  <div *ngIf="loading" class="loading-message">
+    Loading items...
+  </div>
+
+  <!-- Add Item Button -->
+  <div *ngIf="selectedListId > 0 && !loading" class="add-button-container">
+    <button class="add-item-btn" (click)="onAddItem()">Add Item</button>
+  </div>
+
+  <!-- Items Table -->
+  <div class="table-container" *ngIf="selectedListId > 0 && !loading">
+    <table class="items-table">
+      <thead>
+        <tr>
+          <th class="status-col">Status</th>
+          <th class="title-col">Title</th>
+          <th class="description-col">Description</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngIf="items.length === 0">
+          <td colspan="3" class="no-items-message">
+            No items in this list. Create one to get started!
+          </td>
+        </tr>
+        <tr *ngFor="let item of items" class="item-row">
+          <td class="status-cell">
+            <input
+              type="checkbox"
+              [checked]="item.completed"
+              (change)="toggleItem(item)"
+              class="item-checkbox"
+            />
+          </td>
+          <td class="title-cell" [class.completed]="item.completed">
+            {{ item.title }}
+          </td>
+          <td class="description-cell">
+            {{ item.description }}
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>

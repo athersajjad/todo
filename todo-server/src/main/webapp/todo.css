@@ -378,3 +378,64 @@ html, body {
     margin: 0 !important;
     padding: 0 !important;
 }
+
+/* List item with delete button */
+.list-item-panel {
+    display: flex;
+    align-items: center;
+    gap: 4px;
+    border-bottom: 1px solid #ddd;
+}
+
+.list-item-panel .list-item {
+    flex: 1;
+    border: none;
+    border-bottom: none;
+}
+
+.list-item-panel-selected {
+    background-color: #e8f5e9;
+}
+
+.delete-list-btn {
+    padding: 2px 8px;
+    background-color: #f44336;
+    color: white;
+    border: none;
+    border-radius: 3px;
+    cursor: pointer;
+    font-size: 16px;
+    font-weight: bold;
+    width: 24px;
+    height: 24px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+    transition: background-color 0.2s;
+}
+
+.delete-list-btn:hover {
+    background-color: #d32f2f;
+}
+
+.delete-item-btn {
+    padding: 2px 8px;
+    background-color: #f44336;
+    color: white;
+    border: none;
+    border-radius: 3px;
+    cursor: pointer;
+    font-size: 18px;
+    font-weight: bold;
+    width: 28px;
+    height: 28px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: background-color 0.2s;
+}
+
+.delete-item-btn:hover {
+    background-color: #d32f2f;
+}

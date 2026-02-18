@@ -1,0 +1,28 @@
+<div class="main-container">
+  <!-- Left Panel: Todo Lists -->
+  <div class="left-panel">
+    <app-todo-list-panel
+      (listSelected)="onListSelected($event)"
+      (listNameChanged)="onListNameChanged($event)"
+    ></app-todo-list-panel>
+  </div>
+
+  <!-- Right Panel: Todo Items -->
+  <div class="right-panel">
+    <app-todo-items-grid
+      [selectedListId]="selectedListId"
+      [selectedListName]="selectedListName"
+      (addItemClicked)="onAddItemClicked()"
+    ></app-todo-items-grid>
+  </div>
+
+  <!-- Add Item Dialog -->
+  <app-add-item-dialog
+    [visible]="showAddItemDialog"
+    [listId]="selectedListId"
+    (itemCreated)="onItemCreated()"
+    (closed)="onDialogClosed()"
+  ></app-add-item-dialog>
+</div>
+    font-size: 3.125rem;
+    color: var(--gray-900);

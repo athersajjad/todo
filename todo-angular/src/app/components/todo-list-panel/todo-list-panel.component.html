@@ -1,0 +1,48 @@
+<div class="todo-list-container">
+  <h2>Todo Lists</h2>
+
+  <!-- Add List Form -->
+  <div class="add-list-panel">
+    <input
+      type="text"
+      [(ngModel)]="newListName"
+      (keyup.enter)="addList()"
+      placeholder="New list name..."
+      class="list-input"
+      [disabled]="loading"
+    />
+    <button
+      (click)="addList()"
+      class="add-btn"
+      [disabled]="loading"
+    >
+      Add
+    </button>
+  </div>
+
+  <!-- Error Message -->
+  <div *ngIf="error" class="error-message">
+    {{ error }}
+  </div>
+
+  <!-- Lists Container -->
+  <div class="lists-scroll-panel">
+    <div *ngIf="loading && todoLists.length === 0" class="loading-message">
+      Loading lists...
+    </div>
+
+    <div *ngIf="!loading && todoLists.length === 0" class="empty-message">
+      No lists yet. Create one to get started!
+    </div>
+
+    <div *ngFor="let list of todoLists" class="list-item">
+      <span
+        class="list-label"
+        [class.selected]="selectedListId === list.id"
+        (click)="selectList(list.id)"
+      >
+        {{ list.name }}
+      </span>
+    </div>
+  </div>
+</div>

@@ -317,6 +317,15 @@ public class TodoItemsGridView extends Composite {
 		addItemButton.addClickHandler(handler);
 	}
 
+	public void clearItems() {
+		while (itemsGrid.getRowCount() > 1) {
+			itemsGrid.removeRow(1);
+		}
+		itemRowMap.clear();
+		selectedItemId = -1;
+		messageLabel.setText("");
+	}
+
 	public void showMessage(String message) {
 		messageLabel.setText(message);
 	}

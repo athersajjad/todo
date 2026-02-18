@@ -6,6 +6,10 @@
   <packaging>pom</packaging>
   <properties>
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+    <maven.compiler.release>17</maven.compiler.release>
+    <spring.version>6.1.4</spring.version>
+    <jetty.version>12.1.2</jetty.version>
+    <jakarta.servlet.version>6.0.0</jakarta.servlet.version>
   </properties>
   <dependencyManagement>
     <dependencies>
@@ -17,9 +21,17 @@
         <scope>import</scope>
       </dependency>
       <dependency>
+        <groupId>org.springframework</groupId>
+        <artifactId>spring-framework-bom</artifactId>
+        <version>${spring.version}</version>
+        <type>pom</type>
+        <scope>import</scope>
+      </dependency>
+      <dependency>
         <groupId>jakarta.servlet</groupId>
         <artifactId>jakarta.servlet-api</artifactId>
-        <version>6.0.0</version>
+        <version>${jakarta.servlet.version}</version>
+        <scope>provided</scope>
       </dependency>
     </dependencies>
   </dependencyManagement>
@@ -47,6 +59,7 @@
           <version>3.14.1</version>
           <configuration>
             <release>17</release>
+            <parameters>true</parameters>
           </configuration>
         </plugin>
         <plugin>

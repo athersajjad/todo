@@ -1,0 +1,58 @@
+<div class="dialog-overlay" *ngIf="visible" (click)="close()">
+  <div class="dialog-container" (click)="$event.stopPropagation()">
+    <div class="dialog-header">
+      <h2>Add New Item</h2>
+      <button class="close-btn" (click)="close()">✕</button>
+    </div>
+
+    <div class="dialog-body">
+      <div *ngIf="error" class="error-message">
+        {{ error }}
+      </div>
+
+      <div class="form-group">
+        <label for="title">Title *</label>
+        <input
+          id="title"
+          type="text"
+          [(ngModel)]="title"
+          (keyup.enter)="createItem()"
+          (keydown)="onKeyDown($event)"
+          placeholder="Enter item title"
+          class="form-input"
+          [disabled]="loading"
+          autofocus
+        />
+      </div>
+
+      <div class="form-group">
+        <label for="description">Description</label>
+        <textarea
+          id="description"
+          [(ngModel)]="description"
+          placeholder="Enter item description (optional)"
+          class="form-textarea"
+          [disabled]="loading"
+          rows="4"
+        ></textarea>
+      </div>
+    </div>
+
+    <div class="dialog-footer">
+      <button
+        class="btn-cancel"
+        (click)="close()"
+        [disabled]="loading"
+      >
+        Cancel
+      </button>
+      <button
+        class="btn-create"
+        (click)="createItem()"
+        [disabled]="loading"
+      >
+        {{ loading ? 'Creating...' : 'Create Item' }}
+      </button>
+    </div>
+  </div>
+</div>

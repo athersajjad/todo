@@ -1,0 +1,31 @@
+/**
+ * Main Application Styles
+ * 2-panel layout: left panel (220px fixed) + right panel (flex)
+ */
+
+.main-container {
+  display: flex;
+  flex-direction: row;
+  height: 100vh;
+  width: 100%;
+  gap: 0;
+  background-color: #ffffff;
+}
+
+/* Left Panel: Fixed width 220px */
+.left-panel {
+  flex: 0 0 220px;
+  width: 220px;
+  display: flex;
+  flex-direction: column;
+  border-right: 1px solid #e0e0e0;
+  overflow: hidden;
+}
+
+/* Right Panel: Fill remaining space */
+.right-panel {
+  flex: 1 1 auto;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+}
